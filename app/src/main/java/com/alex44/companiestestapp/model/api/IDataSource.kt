@@ -12,6 +12,6 @@ interface IDataSource {
     fun getAllCompanies() : Maybe<MutableList<CompanyShortDTO>>
 
     @GET("test.php ")
-    fun getCompany(@Query("id") query : Int) : Maybe<CompanyDTO>
+    fun getCompany(@Query("id") query : Int) : Maybe<MutableList<CompanyDTO>>
 
 }

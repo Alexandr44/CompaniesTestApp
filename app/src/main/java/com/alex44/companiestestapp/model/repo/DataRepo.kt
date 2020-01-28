@@ -33,6 +33,18 @@ class DataRepo(private var source: IDataSource, private val networkStatus: INetw
         if (networkStatus.isOnline()) {
             return source.getCompany(id)
                 .subscribeOn(Schedulers.io())
+                .filter {list ->
+                    list.retainAll {
+                        return@retainAll it.id != null && !it.name.isNullOrBlank()
+                    }
+                    return@filter true
+                }
+                .map {list ->
+                    if (list.size == 1) {
+                        return@map list[0]
+                    }
+                    else throw RuntimeException("Bad Answer")
+                }
         }
         else {
             return Maybe.create { emitter: MaybeEmitter<CompanyDTO> ->
