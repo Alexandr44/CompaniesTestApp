@@ -1,5 +1,6 @@
 package com.alex44.companiestestapp.presenters
 
+import com.alex44.companiestestapp.common.navigation.Screens
 import com.alex44.companiestestapp.model.dto.CompanyShortDTO
 import com.alex44.companiestestapp.model.repo.IDataRepo
 import com.alex44.companiestestapp.views.HomeRVItemView
@@ -65,7 +66,9 @@ class HomePresenter(private val mainThreadScheduler : Scheduler) : MvpPresenter<
 
     fun clicked(position: Int) {
         val dto = data[position]
-
+        dto.id?.let {
+            router.navigateTo(Screens.DetailScreen(it))
+        }
     }
 
 }
