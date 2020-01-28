@@ -1,5 +1,6 @@
 package com.alex44.companiestestapp.presenters
 
+import com.alex44.companiestestapp.common.navigation.Screens
 import com.alex44.companiestestapp.views.MainView
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
@@ -18,7 +19,7 @@ class MainPresenter : MvpPresenter<MainView>() {
     }
 
     private fun goToHomeScreen() {
-
+        router.newRootScreen(Screens.HomeScreen())
     }
 
 }
