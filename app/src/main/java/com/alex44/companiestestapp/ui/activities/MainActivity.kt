@@ -1,7 +1,8 @@
-package com.alex44.companiestestapp
+package com.alex44.companiestestapp.ui.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.alex44.companiestestapp.R
 
 class MainActivity : AppCompatActivity() {
 
