@@ -1,5 +1,6 @@
 package com.alex44.companiestestapp.common.ui
 
+import android.net.Uri
 import android.widget.ImageView
 import com.alex44.companiestestapp.common.interfaces.IImageLoader
 import com.bumptech.glide.Glide
@@ -13,6 +14,14 @@ class GlideImageLoader : IImageLoader<ImageView> {
         val multi = MultiTransformation(RoundedCorners(corners))
         Glide.with(container.context)
             .load(url)
+            .apply(RequestOptions.bitmapTransform(multi))
+            .into(container)
+    }
+
+    override fun loadIntoFromAssets(url: String, container: ImageView, corners: Int) {
+        val multi = MultiTransformation(RoundedCorners(corners))
+        Glide.with(container.context)
+            .load(Uri.parse("file:///android_asset/$url"))
             .apply(RequestOptions.bitmapTransform(multi))
             .into(container)
     }
