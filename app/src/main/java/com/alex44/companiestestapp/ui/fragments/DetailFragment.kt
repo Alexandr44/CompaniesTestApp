@@ -69,7 +69,7 @@ class DetailFragment : MvpAppCompatFragment(), DetailView, BackButtonListener {
     }
 
     override fun setImage(photoUrl: String) {
-        imageLoader.loadIntoFromAssets(photoUrl, detail_image, 20)
+        imageLoader.loadIntoFromAssets(photoUrl, detail_image, 40)
     }
 
     override fun setDescription(description: String) {
